@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לומדים שפות - אתר לילדים</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f0f9ff;
+            direction: rtl;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        .game-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .game-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+        .animal-image {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>לומדים שפות בהנאה! ??</h1>
+        <p>בחרו משחק כדי להתחיל ללמוד</p>
+    </div>
+
+    <div class="game-container">
+        <div class="game-card" onclick="startGame('animals')">
+            <h2>חיות ??</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="animal-image" alt="חיות">
+        </div>
+
+        <div class="game-card" onclick="startGame('colors')">
+            <h2>צבעים ??</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/1067/1067555.png" class="animal-image" alt="צבעים">
+        </div>
+    </div>
+
+    <script>
+        function startGame(category) {
+            const words = {
+                animals: {
+                    '??': 'כלב',
+                    '??': 'חתול',
+                    '??': 'אריה'
+                },
+                colors: {
+                    '??': 'אדום',
+                    '??': 'ירוק',
+                    '??': 'כחול'
+                }
+            };
+
+            const selectedWords = words[category];
+            const emoji = prompt(`מה זה ${Object.keys(selectedWords)[0]}?`);
+            
+            if (emoji && selectedWords[emoji]) {
+                alert(`כל הכבוד! התשובה הנכונה: ${selectedWords[emoji]}`);
+            } else {
+                alert('נסו שוב! ??');
+            }
+        }
+    </script>
+</body>
+</html>
